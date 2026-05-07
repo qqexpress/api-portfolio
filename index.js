@@ -19,6 +19,7 @@ app.use('/holidays', require('./routes/holidays'));
 app.use('/timezone', require('./routes/timezone'));
 app.use('/vat-rates', require('./routes/vatRates'));
 app.use('/url-shortener', require('./routes/urlShortener'));
+app.use('/world-cup', require('./routes/worldCup'));
 
 // Root
 app.get('/', (req, res) => {
@@ -31,15 +32,22 @@ app.get('/', (req, res) => {
       '/uv-index?lat=51.5&lon=-0.1',
       '/exchange-rates?base=USD&target=EUR',
       '/crypto?coin=bitcoin',
+      '/crypto/top?limit=10',
       '/sports/football?league=39',
+      '/sports/nba?team=lakers',
       '/news?topic=technology&lang=en',
       '/ip-lookup?ip=8.8.8.8',
       '/qr-code?text=https://example.com',
       '/facts/random',
-      '/holidays?country=IE&year=2025',
+      '/facts/category?category=space',
+      '/holidays?country=IE&year=2026',
       '/timezone?timezone=Europe/Dublin',
       '/vat-rates?country=IE',
       '/url-shortener/shorten',
+      '/world-cup/info',
+      '/world-cup/groups',
+      '/world-cup/venues',
+      '/world-cup/facts',
     ]
   });
 });
