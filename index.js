@@ -9,7 +9,7 @@ app.use('/weather', require('./routes/weather'));
 app.use('/air-quality', require('./routes/airQuality'));
 app.use('/uv-index', require('./routes/uvIndex'));
 app.use('/exchange-rates', require('./routes/exchangeRates'));
-app.use('/crypto', require('./routes/crypto'));
+//app.use('/crypto', require('./routes/crypto'));
 app.use('/sports', require('./routes/sports'));
 app.use('/news', require('./routes/news'));
 app.use('/ip-lookup', require('./routes/ipLookup'));
