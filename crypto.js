@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 
-// GET /crypto?coin=bitcoin
-// GET /crypto/top?limit=10
-// GET /crypto/price?coins=bitcoin,ethereum&currency=usd
 router.get('/', async (req, res) => {
   const { coin = 'bitcoin', currency = 'usd' } = req.query;
   try {
@@ -12,7 +9,6 @@ router.get('/', async (req, res) => {
     const response = await fetch(url);
     if (!response.ok) return res.status(404).json({ error: `Coin "${coin}" not found` });
     const data = await response.json();
-
     res.json({
       id: data.id,
       name: data.name,
@@ -38,7 +34,6 @@ router.get('/top', async (req, res) => {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${limit}&page=1`;
     const response = await fetch(url);
     const data = await response.json();
-
     res.json(data.map(c => ({
       rank: c.market_cap_rank,
       id: c.id,
